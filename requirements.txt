@@ -1,0 +1,4 @@
+ipykernel==6.29.5
+numpy==1.26.4
+python-dotenv==1.0.1
+ibm-watsonx-ai==0.0.5
