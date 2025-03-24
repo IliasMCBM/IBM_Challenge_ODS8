@@ -1,7 +1,6 @@
 ipykernel==6.29.5
 numpy==1.26.4
 python-dotenv==1.0.1
-ibm-watsonx-ai==0.0.5
 langgraph==0.3.18
 langchain-ibm==0.3.8
 faiss-cpu==1.10.0
