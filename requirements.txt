@@ -8,3 +8,4 @@ langchain-community==0.3.20
 langgraph==0.3.18
 pypdf==5.4.0
 pillow==11.1.0
+gradio==5.23.1
