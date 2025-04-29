@@ -9,7 +9,9 @@ from advanced_features import (
     analyze_readability,
     extract_key_requirements,
     create_cover_letter,
-    translate_to_simple_language
+    translate_to_simple_language,
+    cv_agent,
+    generate_cv_from_agent_data
 )
 # Imports para PDF
 import tempfile
@@ -250,9 +252,7 @@ def process_skills(content_lines):
     for line in content_lines:
         if line.startswith('**') and line.endswith(':**'):
             # Nueva categoría de habilidad
-            if current_category:
-                categories.append({"name": current_category, "skills": category_skills})
-                category_skills = []
+           
             
             current_category = line.replace('**', '').replace(':', '')
         elif current_category and line:
@@ -643,6 +643,65 @@ with gr.Blocks(theme=theme, title="Asistente de Accesibilidad para Ofertas de Em
                 fn=generate_cover_letter,
                 inputs=[cv_text, job_text],
                 outputs=cover_letter_output
+            )
+        
+        with gr.TabItem("Asistente de CV"):
+            with gr.Row():
+                with gr.Column():
+                    job_description_input = gr.TextArea(
+                        label="Oferta de Empleo",
+                        placeholder="Pega aquí la oferta de empleo para la que quieres crear tu CV...",
+                        lines=10
+                    )
+                    user_input = gr.TextArea(
+                        label="Tu respuesta",
+                        placeholder="Escribe aquí tu respuesta a la pregunta del agente...",
+                        lines=5
+                    )
+                    agent_btn = gr.Button("Iniciar / Responder")
+                
+                with gr.Column():
+                    agent_output = gr.TextArea(
+                        label="Asistente de CV",
+                        lines=10,
+                        value="Bienvenido al asistente de creación de CV. Para empezar, pega una oferta de empleo en el campo de la izquierda y haz clic en 'Iniciar'."
+                    )
+                    agent_cv_output = gr.File(
+                        label="Descargar CV Generado",
+                        visible=False
+                    )
+            
+            # Estado oculto para mantener el contexto de la conversación
+            agent_context = gr.State(None)
+            
+            # Función para procesar cada interacción con el agente
+            def process_agent_interaction(job_desc, user_response, context):
+                if not job_desc.strip():
+                    return "Por favor, introduce primero una oferta de empleo.", context, gr.update(visible=False)
+                
+                # Llamar al agente
+                message, new_context, cv_listo = cv_agent(job_desc, user_response, context)
+                
+                # Si el CV está listo, generarlo
+                if cv_listo:
+                    # Generar el CV
+                    cv_text = generate_cv_from_agent_data(new_context)
+                    
+                    # Usar la misma función que simplify_text con improve_cv para generar el PDF
+                    _, pdf_path = simplify_text(cv_text, "improve_cv")
+                    
+                    if pdf_path:
+                        return message, new_context, gr.update(visible=True, value=pdf_path)
+                    else:
+                        return message + "\n\nHubo un problema al generar el PDF. Por favor, inténtalo de nuevo.", new_context, gr.update(visible=False)
+                
+                return message, new_context, gr.update(visible=False)
+            
+            # Conectar el botón a la función
+            agent_btn.click(
+                fn=process_agent_interaction,
+                inputs=[job_description_input, user_input, agent_context],
+                outputs=[agent_output, agent_context, agent_cv_output]
             )
         
         with gr.TabItem("Simplificación por Nivel"):
