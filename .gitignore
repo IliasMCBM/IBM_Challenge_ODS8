@@ -1,1 +1,12 @@
-.env
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env*
+
+# Logs
+*.log
+
+# Output files
+*.pdf
