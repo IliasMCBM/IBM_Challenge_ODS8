@@ -545,8 +545,13 @@ def process_cv_text_to_html(text):
         
     return '\n'.join(html_parts)
 
+theme = gr.themes.Ocean(
+    primary_hue="blue",
+    neutral_hue="gray",
+)
+
 # --- Create Gradio interface --- 
-with gr.Blocks(theme=gr.themes.Base(), title="Asistente de Accesibilidad para Ofertas de Empleo y Currículums") as demo:
+with gr.Blocks(theme=theme, title="Asistente de Accesibilidad para Ofertas de Empleo y Currículums") as demo:
     gr.Markdown("""
     # Asistente de Accesibilidad para Ofertas de Empleo y Currículums
     
