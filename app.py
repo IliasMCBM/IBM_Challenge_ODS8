@@ -553,9 +553,13 @@ theme = gr.themes.Ocean(
 # --- Create Gradio interface --- 
 with gr.Blocks(theme=theme, title="Asistente de Accesibilidad para Ofertas de Empleo y Currículums") as demo:
     gr.Markdown("""
-    # Asistente de Accesibilidad para Ofertas de Empleo y Currículums
-    
-    Esta herramienta ayuda a hacer más accesibles las ofertas de empleo y currículums mediante diversas funciones de procesamiento de texto.
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" width="120" />
+        <div>
+            <h1>Accessibility Assistant for Job Offers and CVs</h1>
+            <p>This tool helps make job offers and CVs more accessible through various text processing functions.</p>
+        </div>
+    </div>
     """)
     
     with gr.Tabs():
