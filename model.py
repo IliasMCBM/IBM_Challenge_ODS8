@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from ibm_watsonx_ai import APIClient
 from ibm_watsonx_ai import Credentials
 from ibm_watsonx_ai.foundation_models import ModelInference
+load_dotenv()
 
 api_key = os.getenv('WATSONX_API_KEY')
 url = os.getenv('WATSONX_URL')
