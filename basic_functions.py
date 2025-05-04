@@ -23,20 +23,8 @@ def action_manager(text, action_type):
         return None, None 
     
     prompts = {
-        "simplify": f"""**TASK:** Rewrite the following text (it could be a job offer or a CV) to make it much easier to understand.
-                      **GOAL:** A person with no technical background or industry experience should be able to easily understand it.
-                      **INSTRUCTIONS:**
-                      1. Remove all unnecessary technical jargon.
-                      2. Use shorter sentences and simpler language.
-                      3. Keep all essential information (responsibilities, key requirements, relevant experience).
-                      4. Do not add any new information.
-                      
-                      **ORIGINAL TEXT:**
-                      {text}
-                      
-                      **SIMPLIFIED TEXT:**""",
-        
-        "summarize": f"""**TASK:** Create a very concise summary (2-3 sentences or a list of 3–5 key points) of the following text.
+      
+        "summarize": f"""**TASK:** Create a very concise summary (2-3 sentences or a list of 3-5 key points) of the following text.
                       **INSTRUCTIONS:**
                       1. Extract only the most important points.
                       2. Use clear and direct language.

@@ -55,9 +55,9 @@ with gr.Blocks(theme=theme, title="Accessibility Assistant for Job Offers and CV
                         lines=10
                     )
                     action_type = gr.Radio(
-                        ["simplify", "summarize", "improve_cv"],
+                        ["summarize", "improve_cv"],
                         label="Select Action",
-                        value="simplify",
+                        value="summarize",
                         info="'improve_cv' will generate a downloadable PDF."
                     )
                     submit_btn = gr.Button("Process Text")
@@ -108,37 +108,7 @@ with gr.Blocks(theme=theme, title="Accessibility Assistant for Job Offers and CV
                 inputs=job_description,
                 outputs=requirements_output
             )
-
-        # =============================================================================
-        # TAB: Cover Letter Generator
-        # =============================================================================
-        with gr.TabItem("Cover Letter"):
-            with gr.Row():
-                with gr.Column():
-                    cv_text = gr.TextArea(
-                        label="Your CV", 
-                        placeholder="Paste your CV here...", 
-                        lines=10
-                    )
-                    job_text = gr.TextArea(
-                        label="Job Posting", 
-                        placeholder="Paste the job posting here...", 
-                        lines=10
-                    )
-                    cover_letter_btn = gr.Button("Generate Cover Letter")
-                
-                with gr.Column():
-                    cover_letter_output = gr.TextArea(
-                        label="Generated Cover Letter", 
-                        lines=15
-                    )
-            
-            cover_letter_btn.click(
-                fn=create_cover_letter,
-                inputs=[cv_text, job_text],
-                outputs=cover_letter_output
-            )
-
+        
         # =============================================================================
         # TAB: CV Assistant Agent
         # =============================================================================
@@ -197,6 +167,37 @@ with gr.Blocks(theme=theme, title="Accessibility Assistant for Job Offers and CV
                 inputs=[job_description_input, user_input, agent_context],
                 outputs=[agent_output, agent_context, agent_cv_output]
             )
+
+        # =============================================================================
+        # TAB: Cover Letter Generator
+        # =============================================================================
+        with gr.TabItem("Cover Letter"):
+            with gr.Row():
+                with gr.Column():
+                    cv_text = gr.TextArea(
+                        label="Your CV", 
+                        placeholder="Paste your CV here...", 
+                        lines=10
+                    )
+                    job_text = gr.TextArea(
+                        label="Job Posting", 
+                        placeholder="Paste the job posting here...", 
+                        lines=10
+                    )
+                    cover_letter_btn = gr.Button("Generate Cover Letter")
+                
+                with gr.Column():
+                    cover_letter_output = gr.TextArea(
+                        label="Generated Cover Letter", 
+                        lines=15
+                    )
+            
+            cover_letter_btn.click(
+                fn=create_cover_letter,
+                inputs=[cv_text, job_text],
+                outputs=cover_letter_output
+            )
+
 
     # =============================================================================
     # FOOTER

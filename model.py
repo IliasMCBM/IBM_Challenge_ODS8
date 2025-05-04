@@ -22,7 +22,7 @@ model = ModelInference(
     project_id=project_id,
     params={
         "max_new_tokens": 1024,  # Aumentado a 1024
-        "temperature": 0.6, # Reducido ligeramente para mayor coherencia
+        "temperature": 0.4, # Reducido ligeramente para mayor coherencia
     }
 )
 

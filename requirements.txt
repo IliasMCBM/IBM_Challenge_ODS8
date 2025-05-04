@@ -1,7 +1,6 @@
 gradio
 python-dotenv
 ibm-watsonx-ai
-WeasyPrint
 Jinja2
 markdown
 playwright
