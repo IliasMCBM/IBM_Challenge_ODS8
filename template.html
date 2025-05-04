@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Profesional</title>
+
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome (para íconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- jQuery (necesario para manipular el HTML generado por Markdown) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        $('em').each(function () {
+            const texto = $(this).text().trim().toLowerCase();
+
+            if (texto === 'email') {
+                $(this).prepend('<i class="fas fa-envelope" style="color:#0d47a1; margin-right:6px;"></i> ');
+            }
+
+            if (texto === 'teléfono') {
+                $(this).prepend('<i class="fas fa-phone" style="color:#0d47a1; margin-right:6px;"></i> ');
+            }
+
+            // Puedes añadir más aquí si quieres:
+            // if (texto === 'linkedin') { ... }
+        });
+    });
+    </script>
 </head>
 <body>
     <div class="cv-container">

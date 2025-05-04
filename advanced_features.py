@@ -41,24 +41,6 @@ model.params = {
 
 # Advanced text processing functions
 
-def analyze_readability(text):
-    """
-    Analyzes the readability level of a text and suggests improvements
-    to make it more accessible.
-    """
-    prompt = f"""Analiza el nivel de legibilidad del siguiente texto. 
-    Proporciona una puntuación del 1 al 10 (donde 1 es muy difícil de entender y 10 es muy fácil).
-    Identifica las partes más complejas y sugiere cómo simplificarlas sin perder información importante:
-    
-    {text}
-    """
-    
-    try:
-        response = model.generate_text(prompt)
-        return response
-    except Exception as e:
-        return f"Error al analizar la legibilidad: {str(e)}"
-
 def extract_key_requirements(text):
     """
     Extracts and lists the key skills, qualifications, and requirements
@@ -482,30 +464,6 @@ def cv_agent(job_description, user_input="", context=None):
     else:
         return "Ha ocurrido un error en el proceso. Por favor, inténtalo de nuevo.", None, False
 
-def translate_to_simple_language(text, target_level="básico"):
-    """
-    Translates technical or complex text into simpler language at a specified level.
-    Levels: básico, intermedio, avanzado
-    """
-    level_mapping = {
-        "básico": "muy simple y accesible, apto para personas con bajo nivel educativo o discapacidades cognitivas",
-        "intermedio": "moderadamente simple, evitando tecnicismos innecesarios pero manteniendo cierta complejidad",
-        "avanzado": "profesional pero claro, simplificando solo los tecnicismos más especializados"
-    }
-    
-    level_description = level_mapping.get(target_level, level_mapping["básico"])
-    
-    prompt = f"""Traduce el siguiente texto a un lenguaje {level_description}.
-    Mantén toda la información importante pero simplifica la estructura y vocabulario:
-    
-    {text}
-    """
-    
-    try:
-        response = model.generate_text(prompt)
-        return response
-    except Exception as e:
-        return f"Error al traducir a lenguaje simple: {str(e)}"
 
 def generate_cv_from_agent_data(context):
     """
@@ -544,9 +502,6 @@ def generate_cv_from_agent_data(context):
 **HABILIDADES:**
 {' '.join(datos["habilidades"])}
 
-**OFERTA DE EMPLEO A LA QUE APLICA:**
-{datos["oferta"]["descripcion"]}
-
 **INSTRUCCIONES:**
 1. Crea un CV profesional y bien estructurado adaptado específicamente para esta oferta.
 2. Usa formato Markdown con asteriscos para marcar las secciones principales en negrita.
@@ -555,7 +510,6 @@ def generate_cv_from_agent_data(context):
 5. Incluye las siguientes secciones: **DATOS PERSONALES**, **EXPERIENCIA**, **EDUCACIÓN**, **HABILIDADES**.
 6. Utiliza viñetas (•) para listar elementos en cada sección.
 7. Formato de experiencia: **Empresa | Período**
-8. Si hay información faltante importante, complétala de forma razonable.
 
 Genera ÚNICAMENTE el texto del CV, sin comentarios adicionales:
 """

@@ -1,181 +1,130 @@
-/* CV Modern Style */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
-
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
-    --text-color: #333;
-    --border-color: #ddd;
+/* Diseño general */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+    font-size: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #f9f9f9;
+/* Encabezado principal */
+h1 {
+    font-size: 2.4em;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 3px solid #2c3e50;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #333333;
+    margin-top: 25px;
+}
+
+/* Contacto */
+.contacto {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1em;
+    color: #555555;
+}
+
+/* Listas y texto */
+ul {
+    list-style: disc;
+    margin-left: 30px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Estilos de énfasis */
+strong {
+    color: #000;
+    font-weight: bold;
+}
+
+em {
+    color: #555;
+    font-style: italic;
+}
+
+/* Separador */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 0;
+}
+
+/* Links */
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones */
+section {
+    margin-bottom: 30px;
+}
+
+/* Sección de habilidades en columnas */
+.skills ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
     margin: 0;
     padding: 0;
+    list-style-position: inside;
 }
 
-.cv-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 40px;
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-}
-
-/* Header and Personal Info */
-.cv-header {
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 15px;
-    text-align: center;
-}
-
-.name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.4em;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0 0 5px;
-    letter-spacing: 1px;
-}
-
-.title {
-    font-size: 1.2em;
-    font-weight: 400;
-    color: var(--secondary-color);
-    margin: 0 0 15px;
-}
-
-.contact-info {
-    font-size: 0.9em;
-    margin: 10px 0;
-    color: var(--text-color);
-}
-
-.contact-info span {
-    margin: 0 10px;
-    display: inline-block;
-}
-
-/* Section Styling */
-.cv-section {
-    margin-bottom: 25px;
-    clear: both;
-}
-
-.section-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.4em;
-    font-weight: 600;
-    color: var(--primary-color);
-    border-bottom: 1px solid var(--secondary-color);
-    padding-bottom: 8px;
-    margin: 20px 0 15px;
-}
-
-/* Experience and Education */
-.entry {
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.entry-title {
-    font-weight: 600;
-    margin: 0 0 5px;
-    color: var(--primary-color);
-}
-
-.entry-organization {
-    font-weight: 500;
-    margin: 0 0 5px;
-}
-
-.entry-date {
-    font-size: 0.85em;
-    color: var(--secondary-color);
-    margin-bottom: 8px;
-}
-
-.entry-description {
-    margin-left: 15px;
-}
-
-/* Skills */
-.skills-section {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
-
-.skill-category {
-    flex: 1 0 45%;
-    min-width: 250px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-}
-
-.skill-category-title {
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 8px;
-}
-
-.skill-list {
-    list-style-type: none;
-    padding-left: 10px;
-    margin: 0;
-}
-
-.skill-list li {
-    margin-bottom: 5px;
-    position: relative;
+/* Bloques de cita (opcional) */
+blockquote {
+    border-left: 4px solid #ccc;
     padding-left: 15px;
+    color: #666;
+    margin: 20px 0;
+    font-style: italic;
 }
 
-.skill-list li:before {
-    content: "•";
-    color: var(--secondary-color);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-/* Certifications & Awards */
-.certifications ul, .awards ul {
-    list-style-type: none;
-    padding-left: 10px;
-}
-
-.certifications li, .awards li {
-    position: relative;
-    padding-left: 15px;
-    margin-bottom: 8px;
-}
-
-.certifications li:before, .awards li:before {
-    content: "►";
-    color: var(--secondary-color);
-    font-size: 0.8em;
-    position: absolute;
-    left: 0;
-    top: 3px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .cv-container {
+/* Responsive para móviles */
+@media (max-width: 600px) {
+    body {
         padding: 20px;
+        font-size: 15px;
     }
-    
-    .skill-category {
-        flex: 1 0 100%;
-        margin-right: 0;
+
+    .skills ul {
+        columns: 1;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
     }
 }
