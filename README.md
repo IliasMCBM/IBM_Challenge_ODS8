@@ -19,7 +19,7 @@ The application allows users (recruiters or candidates) to paste text from job o
 
 1. Clone this repository:
 ```
-git clone [repository_URL]
+git clone https://github.com/IliasMCBM/IBM_Challenge_ODS8
 ```
 
 2. Install dependencies by running the file corresponding to your OS (Linux/Mac or Windows):
