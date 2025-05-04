@@ -22,9 +22,16 @@ La aplicación permite a los usuarios (reclutadores o candidatos) pegar texto de
 git clone [URL_del_repositorio]
 ```
 
-2. Instale las dependencias:
+2. Instale las dependencias ejecutando el archivo que corresponda a su SO(Linux/Mac o Windows):
+- En Linux o MacOS:
 ```
-pip install -r requirements.txt
+cd nombre_del_repositorio
+./bash.sh
+```
+- En Windows:
+```
+cd nombre_del_repositorio
+install.bat
 ```
 
 3. Configure el archivo `.env` con sus credenciales de IBM WatsonX:
