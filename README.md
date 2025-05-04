@@ -1,68 +1,68 @@
-# Asistente de Accesibilidad para Ofertas de Empleo y Currículums
+# Accessibility Assistant for Job Offers and CVs
 
-Este proyecto forma parte del IBM Challenge ODS8, enfocado en el Objetivo de Desarrollo Sostenible 8: "Trabajo decente y crecimiento económico".
+This project is part of the IBM Challenge ODS8, focused on Sustainable Development Goal 8: "Decent work and economic growth."
 
-## Descripción
+## Description
 
-Esta herramienta utiliza la IA generativa (IBM Granite) para hacer más accesibles las ofertas de empleo y currículums, abordando barreras lingüísticas que dificultan el acceso al empleo para diversos grupos, como personas con diferentes niveles educativos, no hablantes nativos o personas con ciertas discapacidades cognitivas.
+This tool uses generative AI (IBM Granite) to make job offers and CVs more accessible, addressing language barriers that hinder access to employment for various groups, such as people with different educational levels, non-native speakers, or people with certain cognitive disabilities.
 
-## Funcionalidades
+## Features
 
-La aplicación permite a los usuarios (reclutadores o candidatos) pegar texto de ofertas de empleo o secciones de CV para:
+The application allows users (recruiters or candidates) to paste text from job offers or CV sections to:
 
-1. **Simplificar lenguaje técnico**: Convierte terminología compleja en expresiones más accesibles.
-2. **Identificar lenguaje sesgado**: Detecta y sugiere alternativas para expresiones potencialmente excluyentes.
-3. **Generar resúmenes**: Crea versiones concisas y fáciles de entender.
-4. **Mejorar secciones de CV**: Ayuda a redactar contenido en lenguaje claro y efectivo.
+1. **Simplify technical language**: Converts complex terminology into more accessible expressions.
+2. **Identify biased language**: Detects and suggests alternatives for potentially exclusionary expressions.
+3. **Generate summaries**: Creates concise and easy-to-understand versions.
+4. **Improve CV sections**: Helps draft content in clear and effective language.
 
-## Instalación
+## Installation
 
-1. Clone este repositorio:
+1. Clone this repository:
 ```
-git clone [URL_del_repositorio]
+git clone [repository_URL]
 ```
 
-2. Instale las dependencias ejecutando el archivo que corresponda a su SO(Linux/Mac o Windows):
-- En Linux o MacOS:
+2. Install dependencies by running the file corresponding to your OS (Linux/Mac or Windows):
+- On Linux or MacOS:
 ```
-cd nombre_del_repositorio
+cd repository_name
 ./bash.sh
 ```
-- En Windows:
+- On Windows:
 ```
-cd nombre_del_repositorio
+cd repository_name
 install.bat
 ```
 
-3. Configure el archivo `.env` con sus credenciales de IBM WatsonX:
+3. Configure the `.env` file with your IBM WatsonX credentials:
 ```
-WATSONX_API_KEY=su_api_key
-WATSONX_URL=su_url
-WATSONX_PROJECT_ID=su_project_id
+WATSONX_API_KEY=your_api_key
+WATSONX_URL=your_url
+WATSONX_PROJECT_ID=your_project_id
 ```
 
-## Uso
+## Usage
 
-1. Ejecute la aplicación:
+1. Run the application:
 ```
 python app.py
 ```
 
-2. Acceda a la interfaz web a través de la URL local proporcionada.
-3. Pegue el texto que desea procesar y seleccione la acción deseada.
-4. Haga clic en "Procesar texto" para obtener resultados.
+2. Access the web interface through the provided local URL.
+3. Paste the text you want to process and select the desired action.
+4. Click on "Process text" to get results.
 
-## Tecnologías utilizadas
+## Technologies used
 
 - Python
-- Gradio (para la interfaz de usuario)
-- IBM WatsonX AI (con el modelo Granite-13B)
+- Gradio (for the user interface)
+- IBM WatsonX AI (with the Granite-13B model)
 - LangChain
 
-## Contribución al ODS 8
+## Contribution to SDG 8
 
-Este proyecto contribuye al ODS 8 al:
-- Facilitar el acceso al empleo formal para grupos vulnerables
-- Reducir barreras lingüísticas en procesos de reclutamiento
-- Promover prácticas de contratación más inclusivas
-- Mejorar la empleabilidad mediante una comunicación más efectiva
+This project contributes to SDG 8 by:
+- Facilitating access to formal employment for vulnerable groups
+- Reducing language barriers in recruitment processes
+- Promoting more inclusive hiring practices
+- Improving employability through more effective communication
